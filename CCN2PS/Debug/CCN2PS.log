@@ -1,0 +1,2 @@
+﻿  pch.cpp
+c:\users\tsubasatakaoka\source\repos\shortestpath\physarumsolver\pch.cpp(6): error C2857: /Ycstdafx.h コマンド ライン オプションで指定された '#include' ステートメントは、ソース ファイルに含まれていません。
