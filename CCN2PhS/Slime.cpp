@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Slime.h"
 
-float Slime::conductivity_map[N][N] = {};
 //float **Slime::conductivity_map;
 Slime::Slime(){
 }
@@ -102,6 +101,8 @@ void Slime::init_conductivity_map(){
 void Slime::leave_conductivity(Point next_node){
 	quantity[route->destination][next_node] += 10.0;
 	quantity[next_node][route->destination] += 10.0;
+	conductivity_map[route->destination][next_node] = 1.0e-25f;
+	conductivity_map[next_node][route->destination] = 1.0e-25f;
 }
 
 void Slime::decay_conductivity_map() {
@@ -129,7 +130,7 @@ void Slime::find_shortest() {
 		double max = 0.0; // 流量の最大値
 		for (int i = 0; i < N; i++) { // リンクしているノードから流量の大きいノードを選択し次のノードを探索
 			if (!Node::link[now_point][i]) continue; // リンクしていないものは除外
-			if (i == before_point) continue; // 1つ前にの地点を除外
+			if (i == before_point) continue; // 1つ前の地点を除外
 			// 最大値よりも流量が大きいノード間があったときpointを更新する
 			Quantity _quantity = abs(Slime::quantity[now_point][i]);
 			if (max >= _quantity) continue;
@@ -146,7 +147,7 @@ void Slime::find_shortest() {
 }
 
 /* ガウスの削除法計算ルーチン */
-void Slime::gauss(float a[N][N], float x[N], Quantity b[N]) {
+void Slime::gauss(float a[N][N], float x[N], float b[N]) {
 	float copy, akk, aik;
 	int k, max;
 

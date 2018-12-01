@@ -1,7 +1,6 @@
 #pragma once
 class Packet{
 	bool did_reach[N];
-	vector<int> trace;
 	vector<int> link_nodes; // Ú‘±ƒm[ƒh‚ğŠi”[
 	int position_node;
 	int living_time;
@@ -23,5 +22,6 @@ public:
 	static void unit_data(DataBace *databace);
 	static void packets_send_aco();
 	static void packets_send_phs();
+	static vector<int> trace;;
 	bool alive;
 };

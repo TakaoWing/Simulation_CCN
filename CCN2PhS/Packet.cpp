@@ -85,7 +85,7 @@ void Packet::choice_node_phs() {
 		link_nodes.clear();
 		return;
 	}
-	Quantity max_quantity = Slime::quantity[position_node][link_nodes[0]];
+	Quantity max_quantity = abs(Slime::quantity[position_node][link_nodes[0]]);
 	Quantity _quantity;
 	int max_index = 0;
 	for (int i = 1; i < total_node; i++) {

@@ -11,14 +11,14 @@
 
 class Slime{
 private:
-	static void gauss(float a[N][N], float x[N], Quantity b[N]);
+	static void gauss(float a[N][N], float x[N], float b[N]);
 	static void find_shortest();
 	void print_quantity();
-	static float conductivity_map[N][N];
 	//static float **conductivity_map;
 public:
 	Slime();
 	static Quantity quantity[N][N];// ネットワーク全体の流量の値
+	static float conductivity_map[N][N]; // ネットワーク全体の伝導率
 	static void physarum_solver();
 	static Route *route;
 	static void init_conductivity_map();
