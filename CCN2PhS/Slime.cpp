@@ -98,11 +98,11 @@ void Slime::init_conductivity_map(){
 	}
 }
 
-void Slime::leave_conductivity(Point next_node){
+void Slime::put_conductivity_flowRate(Point next_node){
 	quantity[route->destination][next_node] += 10.0;
 	quantity[next_node][route->destination] += 10.0;
-	conductivity_map[route->destination][next_node] = 1.0e-25f;
-	conductivity_map[next_node][route->destination] = 1.0e-25f;
+	conductivity_map[route->destination][next_node] += 1.0e-25f;
+	conductivity_map[next_node][route->destination] += 1.0e-25f;
 }
 
 void Slime::decay_conductivity_map() {

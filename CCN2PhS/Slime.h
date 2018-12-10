@@ -23,6 +23,6 @@ public:
 	static Route *route;
 	static void init_conductivity_map();
 	static void decay_conductivity_map();
-	static void leave_conductivity(Point point);
+	static void put_conductivity_flowRate(Point point);
 };
 

@@ -162,7 +162,7 @@ void Ant::ants_send(Ant * ants){
 	}
 }
 
-void Ant::leave_pheromone(Point point){
+void Ant::put_pheromone(Point point){
 	nodes_pheromon[point][route->distance] += CONTENT_PHEROMONE;
 	nodes_pheromon[route->distance][point] += CONTENT_PHEROMONE;
 }

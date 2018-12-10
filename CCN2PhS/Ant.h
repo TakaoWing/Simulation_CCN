@@ -12,13 +12,13 @@
 #define INTERVAL_DECAY_PHEROMON 10 // フェロモンを衰退させる単位時間
 
 class Ant{
-	bool did_reach[N]; //次接続するノードが通過したノードがどうか　true:通過済み false:未通過
-	vector<int> link_nodes; // 接続ノードを格納
-	vector<int> trace; //辿った経路を格納
 	int living_time; // 生成されてからの生存時間
 	int next_node; // 次に接続するノード
 	int position_node; // 現在位置するノード
 	double cost; // 総コスト
+	bool did_reach[N]; //次接続するノードが通過したノードがどうか　true:通過済み false:未通過
+	vector<int> link_nodes; // 接続ノードを格納
+	vector<int> trace; //辿った経路を格納
 public:
 	Ant();
 	void setup(); // 初期化
@@ -28,12 +28,12 @@ public:
 	void communication_node(); // 選択したノードと通信を行う
 	void update(); // 最短経路などを更新
 	void backforward(); //  Backforward蟻行動
-	static Route *route;
-	static Pheromon nodes_pheromon[N][N];
+	static void init_nodes_pheromon(); // 全ノードのフェロモンを初期化
+	static void decay_pheromone(); // フェロモンの蒸発
+	static void ants_send(Ant *ants); // ACOの実行
+	static void put_pheromone(Point point); // 移動先ノードへのフェロモンを付加する
 	bool alive_backword_ant; // Backword蟻が生きているか
-	bool alive;
-	static void init_nodes_pheromon();
-	static void decay_pheromone();
-	static void ants_send(Ant *ants);
-	static void leave_pheromone(Point point);
+	bool alive; // 蟻が生きているか
+	static Route *route; // routeを格納
+	static Pheromon nodes_pheromon[N][N]; // ノード全体のフェロモン量
 };

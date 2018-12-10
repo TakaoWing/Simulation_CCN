@@ -1,2 +1,7 @@
-﻿  CCN2PhS.cpp
+﻿  pch.cpp
+  Ant.cpp
+  CCN2PhS.cpp
+  Packet.cpp
+  Slime.cpp
+  コードを生成中...
   CCN2PhS.vcxproj -> C:\Users\tsubasatakaoka\Source\Repos\CCN2018\x64\Debug\CCN2PhS.exe
